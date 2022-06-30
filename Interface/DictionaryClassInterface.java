@@ -3,19 +3,18 @@ package Interface;
 import Exceptions.*;
 
 public interface DictionaryClassInterface <K, V> {
-    public K returnKey();
+   
+    public K getKey();
 
-    public V returnValue();
+    public V getValue();
 
-    public DictionaryClassInterface<K, V> returnNext();
+    public DictionaryClassInterface<K, V> getNext();
 
-    public void changeValue(K key, Integer newValue) throws missingKeyException;
+    // public void changeValue(K key, V newValue) throws missingKeyException;
 
     public void addElement(K key, V value) throws doubleKeyException;
 
     public boolean findKey(K key);
 
-    public Object getValue(K key)throws missingKeyException;
-
-    public int size();
+    public int getSize();
 }
