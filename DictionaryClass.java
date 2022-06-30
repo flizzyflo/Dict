@@ -2,12 +2,11 @@
 
 import Interface.DictionaryClassInterface;
 
-import javax.swing.event.SwingPropertyChangeSupport;
 
 import Exceptions.doubleKeyException;
-import Exceptions.missingKeyException;
 
-public class DictionaryClass<K, V>  {
+
+public class DictionaryClass <K, V> implements DictionaryClassInterface <K, V> {
     
     private K key;
     private V value;
@@ -21,19 +20,21 @@ public class DictionaryClass<K, V>  {
    
     };
 
-
+    @Override
     public K getKey() {
         // helper function, returns the key of an dictionary element
 
         return this.key;
     };
-
+    
+    @Override    
     public V getValue() {
         // helper function, returns the value stored for a specific key element.
 
         return this.value;
     };
-
+    
+    @Override
     public DictionaryClass<K, V> getNextItem(){
         // helper function for going through the dictionary.
         // returns the next dictionary item which the pointer points to.
@@ -41,6 +42,7 @@ public class DictionaryClass<K, V>  {
         return this.next;
     };
 
+    @Override
     public int getSize(){
         // returns the size of the dictionary. 
 
@@ -72,6 +74,7 @@ public class DictionaryClass<K, V>  {
         return s.toString();
     };
 
+    @Override
     public void addNewElement(K key, V value) throws doubleKeyException {
         // adds new key = value pair to the dictionary as well as changing the value of a
         // key if a user forgot that it already existed.
@@ -89,6 +92,7 @@ public class DictionaryClass<K, V>  {
         }
     };
 
+    @Override
     public boolean findKey(K key) {
         // Iterates over the dictionary to look for the key. Returns true if found, false if not.
 
